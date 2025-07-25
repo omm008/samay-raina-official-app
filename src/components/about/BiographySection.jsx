@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import samayImg from '../../assets/images/samay.png';
 
 const BiographySection = () => {
   return (
@@ -51,7 +52,7 @@ const BiographySection = () => {
           >
             <div className="relative z-10 bg-gradient-to-br from-red-600 to-black p-8 rounded-3xl border-4 border-yellow-400">
               <img 
-                src="./src/assets/images/samay.png" 
+                src={samayImg}
                 alt="Samay Raina" 
                 className="w-full rounded-2xl shadow-2xl"
               />

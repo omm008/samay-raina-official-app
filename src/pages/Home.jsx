@@ -4,6 +4,7 @@ import PocketChess from '../components/PocketChess';
 import FeaturedVideos from '../components/FeaturedVideos';
 import PatternBackground from '../components/PatternBackground';
 import InteractiveNameText from '../components/enhanced/InteractiveNameText';
+import samayImg from '../assets/images/samay.png';
 
 const Home = () => {
 
@@ -17,7 +18,7 @@ const Home = () => {
           {/* Centered Samay image - IN FRONT of the name - APPEARS FIRST */}
           <motion.img
             className='relative z-10 translate-y-16 sm:translate-y-20 md:translate-y-28 w-[16rem] sm:w-[20rem] md:w-[24rem] lg:w-[28rem] max-w-[80vw]'
-            src="./src/assets/images/samay.png"
+            src={samayImg}
             alt="Samay Raina"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
