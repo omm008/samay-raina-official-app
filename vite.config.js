@@ -6,4 +6,5 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
     react()],
+  base: '/samay-raina-official-app/',
 })
