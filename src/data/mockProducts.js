@@ -9,9 +9,9 @@ export const mockProducts = [
     price: 899,
     originalPrice: 1299,
     images: [
-      '/src/assets/images/tshirt1.png',
-      '/src/assets/images/tshirt2.png',
-      '/src/assets/images/tshirt3.png'
+      '/assets/images/tshirt1.png',
+      '/assets/images/tshirt2.png',
+      '/assets/images/tshirt3.png'
     ],
     category: PRODUCT_CATEGORIES.APPAREL,
     inStock: true,
