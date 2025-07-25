@@ -1,0 +1,283 @@
+/* 3D Chess Board Styling */
+.chess-board-3d {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.chess-square {
+  position: relative;
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.chess-square::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  transform: translateZ(-2px);
+  opacity: 0.7;
+}
+
+/* Amber/Wood color scheme */
+.chess-square-light {
+  background: linear-gradient(135deg, #F4A460 0%, #DEB887 50%, #D2B48C 100%);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1),
+    0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chess-square-dark {
+  background: linear-gradient(135deg, #8B4513 0%, #A0522D 50%, #CD853F 100%);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+    0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Hover effects */
+.chess-square:hover {
+  transform: translateY(-2px) rotateX(5deg);
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.2),
+    0 0 20px rgba(220, 60, 34, 0.3);
+}
+
+.chess-square-light:hover {
+  background: linear-gradient(135deg, #F5DEB3 0%, #F0E68C 50%, #E6E6FA 100%);
+}
+
+.chess-square-dark:hover {
+  background: linear-gradient(135deg, #A0522D 0%, #B8860B 50%, #DAA520 100%);
+}
+
+/* Selected square */
+.chess-square-selected {
+  background: linear-gradient(135deg, #22C55E 0%, #16A34A 50%, #15803D 100%) !important;
+  box-shadow: 
+    0 0 20px rgba(34, 197, 94, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px) rotateX(10deg);
+}
+
+/* Valid move indicators */
+.chess-square-valid-move {
+  position: relative;
+}
+
+.chess-square-valid-move::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background: rgba(34, 197, 94, 0.8);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.6);
+  animation: pulse-green 2s ease-in-out infinite;
+}
+
+@keyframes pulse-green {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Chess pieces styling */
+.chess-piece {
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+  transform-style: preserve-3d;
+}
+
+.chess-piece:hover {
+  transform: scale(1.1) rotateY(10deg);
+  text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.7),
+    0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.chess-piece-selected {
+  transform: scale(1.2) rotateY(15deg);
+  text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.7),
+    0 0 15px rgba(34, 197, 94, 0.8);
+  animation: piece-glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes piece-glow {
+  from {
+    filter: brightness(1);
+  }
+  to {
+    filter: brightness(1.3) drop-shadow(0 0 10px rgba(34, 197, 94, 0.6));
+  }
+}
+
+/* Chess piece movement animation */
+.chess-piece-moving {
+  animation: piece-move 0.5s ease-in-out;
+  z-index: 10;
+}
+
+@keyframes piece-move {
+  0% {
+    transform: scale(1) rotateY(0deg);
+  }
+  25% {
+    transform: scale(1.3) rotateY(90deg);
+  }
+  50% {
+    transform: scale(1.4) rotateY(180deg);
+  }
+  75% {
+    transform: scale(1.3) rotateY(270deg);
+  }
+  100% {
+    transform: scale(1) rotateY(360deg);
+  }
+}
+
+/* Chess piece capture animation */
+.chess-piece-captured {
+  animation: piece-capture 0.6s ease-in-out forwards;
+}
+
+@keyframes piece-capture {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5) rotate(180deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(0) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Chess board container */
+.chess-board-container {
+  background: linear-gradient(135deg, #2D1B14 0%, #4A2C1A 50%, #6B3E2A 100%);
+  border: 4px solid #8B4513;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.chess-board-container::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #DAA520, #B8860B, #CD853F, #D2691E);
+  border-radius: 14px;
+  z-index: -1;
+}
+
+/* Chess board coordinates */
+.chess-coordinate {
+  color: #D2B48C;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  font-size: 0.875rem;
+}
+
+/* Game status styling */
+.chess-game-status {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(139, 69, 19, 0.6) 100%);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(218, 165, 32, 0.5);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 16px 0;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.chess-game-status h3 {
+  color: #F4A460;
+  margin-bottom: 8px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.chess-game-status p {
+  color: #DEB887;
+  margin: 4px 0;
+}
+
+/* AI thinking indicator */
+.ai-thinking {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #F4A460;
+  font-weight: bold;
+}
+
+.ai-thinking-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.ai-thinking-dot {
+  width: 6px;
+  height: 6px;
+  background: #DAA520;
+  border-radius: 50%;
+  animation: thinking-pulse 1.4s ease-in-out infinite both;
+}
+
+.ai-thinking-dot:nth-child(1) { animation-delay: -0.32s; }
+.ai-thinking-dot:nth-child(2) { animation-delay: -0.16s; }
+.ai-thinking-dot:nth-child(3) { animation-delay: 0s; }
+
+@keyframes thinking-pulse {
+  0%, 80%, 100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive chess board */
+@media (max-width: 768px) {
+  .chess-piece {
+    font-size: 1.8rem;
+  }
+  
+  .chess-board-container {
+    padding: 12px;
+  }
+  
+  .chess-square::after {
+    width: 16px;
+    height: 16px;
+  }
+}

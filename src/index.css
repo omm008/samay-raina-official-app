@@ -1,0 +1,46 @@
+@font-face {
+  font-family: myCustomFont;
+  src: url('./assets/fonts/myCustomFont.ttf');
+}
+@font-face {
+  font-family: subHead;
+  src: url('./assets/fonts/Bitcount_Cursive-Medium.ttf');
+}
+
+@theme{
+  --font-custom: myCustomFont, 'sans-serif';
+  --font-subHead: subHead, 'sans';
+}
+
+@import "tailwindcss"; /* This brings in everything needed for Tailwind v4 */
+
+/* Import custom styles */
+@import "./styles/glassmorphism.css";
+@import "./styles/animations.css";
+@import "./styles/chess-board.css";
+
+/* Global styles for smooth animations */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Ensure backdrop-filter support */
+@supports (backdrop-filter: blur(10px)) {
+  .glass-morphism {
+    backdrop-filter: blur(10px);
+  }
+}
+
+@supports not (backdrop-filter: blur(10px)) {
+  .glass-morphism {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
