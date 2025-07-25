@@ -205,4 +205,4 @@ Built with ❤️ for Samay Raina's official website.
 ---
 
 **Live Demo:** [Coming Soon]
-**Contact:** [Your Contact Information]
+**Contact:** https://www.linkedin.com/in/om-vishwakarma-a51821229/
