@@ -32,6 +32,7 @@ export const authenticateUser = (email, password) => {
   const user = mockUsers.find(u => u.email === email);
   
   if (user && password === 'password123') {
+    window.location.href = "/samay-raina-official-app/home";
     return { success: true, user };
   }
   

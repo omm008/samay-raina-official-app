@@ -1,5 +1,46 @@
 import { createProduct, PRODUCT_CATEGORIES } from '../types/index.js';
 
+// Function to dynamically import images
+const importImage = (imageName) => {
+  try {
+    return new URL(`../assets/images/${imageName}`, import.meta.url).href;
+  } catch (error) {
+    console.warn(`Failed to load image: ${imageName}`);
+    return null;
+  }
+};
+
+// Function to get all product images
+const getProductImages = () => {
+  const imageFiles = [
+    'tshirt1.png',
+    'tshirt2.png',
+    'tshirt3.png',
+    'tshirt4.png',
+    'tshirt5.png',
+    'mug1.png',
+    'mug2.png',
+    'mug3.png',
+    'mug4.png',
+    'mug5.jpeg',
+    'samay.png',
+    'chess1.png',
+    'chess2.png'
+  ];
+
+  const images = {};
+  imageFiles.forEach(fileName => {
+    const imageName = fileName.split('.')[0]; // Remove extension for key
+    images[imageName] = importImage(fileName);
+  });
+
+  return images;
+};
+
+// Get all images using the function
+const images = getProductImages();
+
+
 // Mock product data for the Samay Raina merchandise store
 export const mockProducts = [
   createProduct({
@@ -9,9 +50,9 @@ export const mockProducts = [
     price: 899,
     originalPrice: 1299,
     images: [
-      '/assets/images/tshirt1.png',
-      '/assets/images/tshirt2.png',
-      '/assets/images/tshirt3.png'
+      images.tshirt1,
+      images.tshirt2,
+      images.tshirt3
     ],
     category: PRODUCT_CATEGORIES.APPAREL,
     inStock: true,
@@ -25,7 +66,7 @@ export const mockProducts = [
       color: ['Black', 'Navy Blue', 'Maroon']
     }
   }),
-  
+
   createProduct({
     id: 'sr-hoodie-001',
     name: 'Checkmate Hoodie',
@@ -33,8 +74,8 @@ export const mockProducts = [
     price: 1599,
     originalPrice: 2199,
     images: [
-      '/src/assets/images/tshirt4.png',
-      '/src/assets/images/tshirt5.png'
+      images.tshirt4,
+      images.tshirt5
     ],
     category: PRODUCT_CATEGORIES.APPAREL,
     inStock: true,
@@ -56,8 +97,8 @@ export const mockProducts = [
     price: 799,
     originalPrice: 999,
     images: [
-      '/src/assets/images/tshirt2.png',
-      '/src/assets/images/tshirt3.png'
+      images.tshirt2,
+      images.tshirt3
     ],
     category: PRODUCT_CATEGORIES.APPAREL,
     inStock: true,
@@ -79,8 +120,8 @@ export const mockProducts = [
     price: 2999,
     originalPrice: 3999,
     images: [
-      'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=500&h=500&fit=crop',
-      'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=500&h=500&fit=crop'
+      images.tshirt4,
+      images.tshirt5
     ],
     category: PRODUCT_CATEGORIES.APPAREL,
     inStock: true,
@@ -102,8 +143,8 @@ export const mockProducts = [
     price: 599,
     originalPrice: 799,
     images: [
-      'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=500&h=500&fit=crop',
-      'https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?w=500&h=500&fit=crop'
+      images.tshirt1,
+      images.tshirt2
     ],
     category: PRODUCT_CATEGORIES.APPAREL,
     inStock: true,
@@ -124,8 +165,8 @@ export const mockProducts = [
     price: 1299,
     originalPrice: 1699,
     images: [
-      'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=500&h=500&fit=crop',
-      'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=500&h=500&fit=crop'
+      images.tshirt3,
+      images.tshirt4
     ],
     category: PRODUCT_CATEGORIES.APPAREL,
     inStock: true,
@@ -147,9 +188,10 @@ export const mockProducts = [
     price: 2999,
     originalPrice: 3999,
     images: [
-      'https://images.unsplash.com/photo-1528819622765-d6bcf132ac11?w=500&h=500&fit=crop',
-      'https://images.unsplash.com/photo-1606166187734-a4cb74079037?w=500&h=500&fit=crop',
-      'https://images.unsplash.com/photo-1611195974226-ef16ab4e4c8d?w=500&h=500&fit=crop'
+      images.chess1,
+      images.chess2
+      // Placeholder for chess set images - can be outsourced
+
     ],
     category: PRODUCT_CATEGORIES.ACCESSORIES,
     inStock: true,
@@ -168,8 +210,9 @@ export const mockProducts = [
     price: 1499,
     originalPrice: 1999,
     images: [
-      'https://images.unsplash.com/photo-1606166187734-a4cb74079037?w=500&h=500&fit=crop',
-      'https://images.unsplash.com/photo-1528819622765-d6bcf132ac11?w=500&h=500&fit=crop'
+      // Placeholder for chess board images - can be outsourced
+      'https://images.unsplash.com/photo-1528819622765-d6bcf132ac11?w=500',
+      'https://images.unsplash.com/photo-1606166187734-a4cb74079037?w=500'
     ],
     category: PRODUCT_CATEGORIES.ACCESSORIES,
     inStock: true,
@@ -190,8 +233,9 @@ export const mockProducts = [
     price: 399,
     originalPrice: 499,
     images: [
-      '/src/assets/images/mug1.png',
-      '/src/assets/images/mug2.png'
+      images.mug1,
+      images.mug2,
+      images.mug3
     ],
     category: PRODUCT_CATEGORIES.ACCESSORIES,
     inStock: true,
@@ -199,9 +243,32 @@ export const mockProducts = [
     rating: 4.5,
     reviews: 234,
     isNew: false,
-    isBestseller: false,
+    isBestseller: true,
     variants: {
       color: ['White', 'Black', 'Red']
+    }
+  }),
+
+  createProduct({
+    id: 'sr-mug-002',
+    name: 'Premium Chess Mug Collection',
+    description: 'Exclusive ceramic mug collection with different chess-themed designs for every mood.',
+    price: 599,
+    originalPrice: 799,
+    images: [
+      images.mug4,
+      images.mug5,
+      images.mug1
+    ],
+    category: PRODUCT_CATEGORIES.ACCESSORIES,
+    inStock: true,
+    stockCount: 75,
+    rating: 4.7,
+    reviews: 156,
+    isNew: true,
+    isBestseller: false,
+    variants: {
+      color: ['White', 'Black', 'Blue', 'Red']
     }
   }),
 
@@ -212,8 +279,8 @@ export const mockProducts = [
     price: 699,
     originalPrice: 899,
     images: [
-      'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500&h=500&fit=crop',
-      'https://images.unsplash.com/photo-1616627988756-20c2e9e8e5b8?w=500&h=500&fit=crop'
+      images.mug3,
+      images.mug4
     ],
     category: PRODUCT_CATEGORIES.ACCESSORIES,
     inStock: true,
@@ -234,8 +301,8 @@ export const mockProducts = [
     price: 299,
     originalPrice: 399,
     images: [
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=500&fit=crop',
-      'https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=500&h=500&fit=crop'
+      images.mug5,
+      images.samay
     ],
     category: PRODUCT_CATEGORIES.ACCESSORIES,
     inStock: true,
@@ -255,8 +322,8 @@ export const mockProducts = [
     description: 'Collection of 10 waterproof stickers featuring Samay\'s most popular memes and chess moments.',
     price: 199,
     images: [
-      '/products/stickers-pack-1.jpg',
-      '/products/stickers-pack-2.jpg'
+      images.tshirt1,
+      images.tshirt2
     ],
     category: PRODUCT_CATEGORIES.ACCESSORIES,
     inStock: true,
@@ -270,8 +337,8 @@ export const mockProducts = [
     description: 'Protect your phone with style! Available for multiple phone models with Samay\'s chess-themed design.',
     price: 799,
     images: [
-      '/products/phonecase-chess-1.jpg',
-      '/products/phonecase-chess-2.jpg'
+      images.tshirt3,
+      images.tshirt4
     ],
     category: PRODUCT_CATEGORIES.ACCESSORIES,
     inStock: true,
@@ -288,7 +355,7 @@ export const mockProducts = [
     price: 499,
     originalPrice: 699,
     images: [
-      'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=500&h=500&fit=crop'
+      images.samay
     ],
     category: PRODUCT_CATEGORIES.DIGITAL,
     inStock: true,
@@ -307,7 +374,7 @@ export const mockProducts = [
     price: 2499,
     originalPrice: 2999,
     images: [
-      'https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=500&h=500&fit=crop'
+      images.samay
     ],
     category: PRODUCT_CATEGORIES.DIGITAL,
     inStock: true,
@@ -326,7 +393,7 @@ export const mockProducts = [
     price: 1999,
     originalPrice: 2499,
     images: [
-      'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&h=500&fit=crop'
+      images.samay
     ],
     category: PRODUCT_CATEGORIES.DIGITAL,
     inStock: false,
@@ -345,7 +412,7 @@ export const mockProducts = [
     price: 1299,
     originalPrice: 1799,
     images: [
-      'https://images.unsplash.com/photo-1606166187734-a4cb74079037?w=500&h=500&fit=crop'
+      images.samay
     ],
     category: PRODUCT_CATEGORIES.DIGITAL,
     inStock: true,
@@ -364,7 +431,7 @@ export const mockProducts = [
     price: 999,
     originalPrice: 1299,
     images: [
-      'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=500&h=500&fit=crop'
+      images.samay
     ],
     category: PRODUCT_CATEGORIES.DIGITAL,
     inStock: true,
@@ -392,7 +459,7 @@ export const getInStockProducts = () => {
 
 export const searchProducts = (query) => {
   const lowercaseQuery = query.toLowerCase();
-  return mockProducts.filter(product => 
+  return mockProducts.filter(product =>
     product.name.toLowerCase().includes(lowercaseQuery) ||
     product.description.toLowerCase().includes(lowercaseQuery)
   );

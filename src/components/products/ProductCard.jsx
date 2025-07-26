@@ -13,7 +13,7 @@ const ProductCard = ({ product, index, addToCart }) => {
     addToCart(product, 1);
   };
 
-  const discountPercentage = product.originalPrice > product.price 
+  const discountPercentage = product.originalPrice > product.price
     ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
     : 0;
 
@@ -75,14 +75,13 @@ const ProductCard = ({ product, index, addToCart }) => {
 
           {/* Product Image */}
           <div className="relative aspect-square bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden">
-            {product.images && product.images[0] ? (
+            {product.images && product.images.length > 0 ? (
               <>
-                <motion.img 
-                  src={product.images[0]} 
+                <motion.img
+                  src={product.images[0]}
                   alt={product.name}
-                  className={`w-full h-full object-cover transition-all duration-500 ${
-                    imageLoaded ? 'opacity-100' : 'opacity-0'
-                  }`}
+                  className={`w-full h-full object-cover transition-all duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'
+                    }`}
                   onLoad={() => setImageLoaded(true)}
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.4 }}
@@ -124,13 +123,13 @@ const ProductCard = ({ product, index, addToCart }) => {
 
           {/* Product Info */}
           <div className="p-6">
-            <motion.h3 
+            <motion.h3
               className="text-white font-bold text-lg mb-2 group-hover:text-yellow-400 transition-colors line-clamp-1"
               whileHover={{ x: 2 }}
             >
               {product.name}
             </motion.h3>
-            
+
             <p className="text-gray-400 text-sm mb-3 line-clamp-2 leading-relaxed">
               {product.description}
             </p>
@@ -144,11 +143,10 @@ const ProductCard = ({ product, index, addToCart }) => {
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.1 * i }}
-                    className={`text-sm ${
-                      i < Math.floor(product.rating) 
-                        ? 'text-yellow-400' 
+                    className={`text-sm ${i < Math.floor(product.rating)
+                        ? 'text-yellow-400'
                         : 'text-gray-600'
-                    }`}
+                      }`}
                   >
                     ⭐
                   </motion.span>
@@ -156,11 +154,11 @@ const ProductCard = ({ product, index, addToCart }) => {
               </div>
               <span className="text-gray-400 text-xs">({product.reviews})</span>
             </div>
-            
+
             {/* Price Section */}
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
-                <motion.div 
+                <motion.div
                   className="text-2xl font-bold text-yellow-400"
                   whileHover={{ scale: 1.05 }}
                 >
@@ -172,7 +170,7 @@ const ProductCard = ({ product, index, addToCart }) => {
                   </div>
                 )}
               </div>
-              
+
               {product.inStock && (
                 <motion.button
                   onClick={handleAddToCart}

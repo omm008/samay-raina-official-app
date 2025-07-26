@@ -26,6 +26,10 @@ const DesktopNavigation = ({ navItems = [] }) => {
           >
             <NavLink
               to={item.href}
+              onClick={(e) => {
+                // Prevent any potential event conflicts
+                e.stopPropagation();
+              }}
               className={({ isActive }) => 
                 `relative px-5 py-3 rounded-xl font-medium transition-all duration-300 flex items-center space-x-2 group overflow-hidden ${
                   isActive 
