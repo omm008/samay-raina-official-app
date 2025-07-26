@@ -15,24 +15,6 @@ import samay from '../assets/images/samay.png';
 import chess1 from '../assets/images/chess1.png';
 import chess2 from '../assets/images/chess2.png';
 
-// Organized images object for easy access
-const images = {
-  tshirt1,
-  tshirt2,
-  tshirt3,
-  tshirt4,
-  tshirt5,
-  mug1,
-  mug2,
-  mug3,
-  mug4,
-  mug5,
-  samay,
-  chess1,
-  chess2
-};
-
-
 // Mock product data for the Samay Raina merchandise store
 export const mockProducts = [
   createProduct({
@@ -42,9 +24,9 @@ export const mockProducts = [
     price: 899,
     originalPrice: 1299,
     images: [
-      images.tshirt1,
-      images.tshirt2,
-      images.tshirt3
+      tshirt1,
+      tshirt2,
+      tshirt3
     ],
     category: PRODUCT_CATEGORIES.APPAREL,
     inStock: true,
@@ -66,8 +48,8 @@ export const mockProducts = [
     price: 1599,
     originalPrice: 2199,
     images: [
-      images.tshirt4,
-      images.tshirt5
+      tshirt4,
+      tshirt5
     ],
     category: PRODUCT_CATEGORIES.APPAREL,
     inStock: true,
@@ -89,8 +71,8 @@ export const mockProducts = [
     price: 799,
     originalPrice: 999,
     images: [
-      images.tshirt2,
-      images.tshirt3
+      tshirt2,
+      tshirt3
     ],
     category: PRODUCT_CATEGORIES.APPAREL,
     inStock: true,
@@ -112,8 +94,8 @@ export const mockProducts = [
     price: 2999,
     originalPrice: 3999,
     images: [
-      images.tshirt4,
-      images.tshirt5
+      tshirt4,
+      tshirt5
     ],
     category: PRODUCT_CATEGORIES.APPAREL,
     inStock: true,
@@ -135,8 +117,8 @@ export const mockProducts = [
     price: 599,
     originalPrice: 799,
     images: [
-      images.tshirt1,
-      images.tshirt2
+      tshirt1,
+      tshirt2
     ],
     category: PRODUCT_CATEGORIES.APPAREL,
     inStock: true,
@@ -157,8 +139,8 @@ export const mockProducts = [
     price: 1299,
     originalPrice: 1699,
     images: [
-      images.tshirt3,
-      images.tshirt4
+      tshirt3,
+      tshirt4
     ],
     category: PRODUCT_CATEGORIES.APPAREL,
     inStock: true,
@@ -180,10 +162,8 @@ export const mockProducts = [
     price: 2999,
     originalPrice: 3999,
     images: [
-      images.chess1,
-      images.chess2
-      // Placeholder for chess set images - can be outsourced
-
+      chess1,
+      chess2
     ],
     category: PRODUCT_CATEGORIES.ACCESSORIES,
     inStock: true,
@@ -202,7 +182,6 @@ export const mockProducts = [
     price: 1499,
     originalPrice: 1999,
     images: [
-      // Placeholder for chess board images - can be outsourced
       'https://images.unsplash.com/photo-1528819622765-d6bcf132ac11?w=500',
       'https://images.unsplash.com/photo-1606166187734-a4cb74079037?w=500'
     ],
@@ -225,9 +204,9 @@ export const mockProducts = [
     price: 399,
     originalPrice: 499,
     images: [
-      images.mug1,
-      images.mug2,
-      images.mug3
+      mug1,
+      mug2,
+      mug3
     ],
     category: PRODUCT_CATEGORIES.ACCESSORIES,
     inStock: true,
@@ -248,9 +227,9 @@ export const mockProducts = [
     price: 599,
     originalPrice: 799,
     images: [
-      images.mug4,
-      images.mug5,
-      images.mug1
+      mug4,
+      mug5,
+      mug1
     ],
     category: PRODUCT_CATEGORIES.ACCESSORIES,
     inStock: true,
@@ -271,8 +250,8 @@ export const mockProducts = [
     price: 699,
     originalPrice: 899,
     images: [
-      images.mug3,
-      images.mug4
+      mug3,
+      mug4
     ],
     category: PRODUCT_CATEGORIES.ACCESSORIES,
     inStock: true,
@@ -293,8 +272,8 @@ export const mockProducts = [
     price: 299,
     originalPrice: 399,
     images: [
-      images.mug5,
-      images.samay
+      mug5,
+      samay
     ],
     category: PRODUCT_CATEGORIES.ACCESSORIES,
     inStock: true,
@@ -314,8 +293,8 @@ export const mockProducts = [
     description: 'Collection of 10 waterproof stickers featuring Samay\'s most popular memes and chess moments.',
     price: 199,
     images: [
-      images.tshirt1,
-      images.tshirt2
+      tshirt1,
+      tshirt2
     ],
     category: PRODUCT_CATEGORIES.ACCESSORIES,
     inStock: true,
@@ -329,8 +308,8 @@ export const mockProducts = [
     description: 'Protect your phone with style! Available for multiple phone models with Samay\'s chess-themed design.',
     price: 799,
     images: [
-      images.tshirt3,
-      images.tshirt4
+      tshirt3,
+      tshirt4
     ],
     category: PRODUCT_CATEGORIES.ACCESSORIES,
     inStock: true,
@@ -347,7 +326,7 @@ export const mockProducts = [
     price: 499,
     originalPrice: 699,
     images: [
-      images.samay
+      samay
     ],
     category: PRODUCT_CATEGORIES.DIGITAL,
     inStock: true,
@@ -366,7 +345,7 @@ export const mockProducts = [
     price: 2499,
     originalPrice: 2999,
     images: [
-      images.samay
+      samay
     ],
     category: PRODUCT_CATEGORIES.DIGITAL,
     inStock: true,
@@ -385,7 +364,7 @@ export const mockProducts = [
     price: 1999,
     originalPrice: 2499,
     images: [
-      images.samay
+      samay
     ],
     category: PRODUCT_CATEGORIES.DIGITAL,
     inStock: false,
@@ -404,7 +383,7 @@ export const mockProducts = [
     price: 1299,
     originalPrice: 1799,
     images: [
-      images.samay
+      samay
     ],
     category: PRODUCT_CATEGORIES.DIGITAL,
     inStock: true,
@@ -423,7 +402,7 @@ export const mockProducts = [
     price: 999,
     originalPrice: 1299,
     images: [
-      images.samay
+      samay
     ],
     category: PRODUCT_CATEGORIES.DIGITAL,
     inStock: true,
