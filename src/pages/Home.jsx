@@ -4,7 +4,7 @@ import PocketChess from '../components/PocketChess';
 import FeaturedVideos from '../components/FeaturedVideos';
 import PatternBackground from '../components/PatternBackground';
 import InteractiveNameText from '../components/enhanced/InteractiveNameText';
-import samayImg from '../assets/images/samay.png';
+const samayImg = '/samay.png';
 
 const Home = () => {
 

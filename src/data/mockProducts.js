@@ -1,19 +1,19 @@
 import { createProduct, PRODUCT_CATEGORIES } from '../types/index.js';
 
-// Static imports for GitHub Pages compatibility
-import tshirt1 from '../assets/images/tshirt1.png';
-import tshirt2 from '../assets/images/tshirt2.png';
-import tshirt3 from '../assets/images/tshirt3.png';
-import tshirt4 from '../assets/images/tshirt4.png';
-import tshirt5 from '../assets/images/tshirt5.png';
-import mug1 from '../assets/images/mug1.png';
-import mug2 from '../assets/images/mug2.png';
-import mug3 from '../assets/images/mug3.png';
-import mug4 from '../assets/images/mug4.png';
-import mug5 from '../assets/images/mug5.jpeg';
-import samay from '../assets/images/samay.png';
-import chess1 from '../assets/images/chess1.png';
-import chess2 from '../assets/images/chess2.png';
+// Static image paths for public folder
+const tshirt1 = '/tshirt1.png';
+const tshirt2 = '/tshirt2.png';
+const tshirt3 = '/tshirt3.png';
+const tshirt4 = '/tshirt4.png';
+const tshirt5 = '/tshirt5.png';
+const mug1 = '/mug2.png'; // mug1.png needs to be moved to public folder
+const mug2 = '/mug2.png';
+const mug3 = '/mug3.png';
+const mug4 = '/mug3.png'; // mug4.png needs to be moved to public folder
+const mug5 = '/mug5.jpeg';
+const samay = '/samay.png';
+const chess1 = '/chess1.png';
+const chess2 = '/chess2.png';
 
 // Mock product data for the Samay Raina merchandise store
 export const mockProducts = [
