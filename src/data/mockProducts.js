@@ -1,44 +1,36 @@
 import { createProduct, PRODUCT_CATEGORIES } from '../types/index.js';
 
-// Function to dynamically import images
-const importImage = (imageName) => {
-  try {
-    return new URL(`../assets/images/${imageName}`, import.meta.url).href;
-  } catch (error) {
-    console.warn(`Failed to load image: ${imageName}`);
-    return null;
-  }
+// Static imports for GitHub Pages compatibility
+import tshirt1 from '../assets/images/tshirt1.png';
+import tshirt2 from '../assets/images/tshirt2.png';
+import tshirt3 from '../assets/images/tshirt3.png';
+import tshirt4 from '../assets/images/tshirt4.png';
+import tshirt5 from '../assets/images/tshirt5.png';
+import mug1 from '../assets/images/mug1.png';
+import mug2 from '../assets/images/mug2.png';
+import mug3 from '../assets/images/mug3.png';
+import mug4 from '../assets/images/mug4.png';
+import mug5 from '../assets/images/mug5.jpeg';
+import samay from '../assets/images/samay.png';
+import chess1 from '../assets/images/chess1.png';
+import chess2 from '../assets/images/chess2.png';
+
+// Organized images object for easy access
+const images = {
+  tshirt1,
+  tshirt2,
+  tshirt3,
+  tshirt4,
+  tshirt5,
+  mug1,
+  mug2,
+  mug3,
+  mug4,
+  mug5,
+  samay,
+  chess1,
+  chess2
 };
-
-// Function to get all product images
-const getProductImages = () => {
-  const imageFiles = [
-    'tshirt1.png',
-    'tshirt2.png',
-    'tshirt3.png',
-    'tshirt4.png',
-    'tshirt5.png',
-    'mug1.png',
-    'mug2.png',
-    'mug3.png',
-    'mug4.png',
-    'mug5.jpeg',
-    'samay.png',
-    'chess1.png',
-    'chess2.png'
-  ];
-
-  const images = {};
-  imageFiles.forEach(fileName => {
-    const imageName = fileName.split('.')[0]; // Remove extension for key
-    images[imageName] = importImage(fileName);
-  });
-
-  return images;
-};
-
-// Get all images using the function
-const images = getProductImages();
 
 
 // Mock product data for the Samay Raina merchandise store
